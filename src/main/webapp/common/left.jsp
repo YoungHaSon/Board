@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li class="active"><a href="${pageContext.request.contextPath}/main.jsp">Main.jsp</a></li>
-	
-		<li class="active"><a href="${pageContext.request.contextPath}/userList">/user/userList.jsp</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath}/create_board">Create_Board</a></li>
 		
-		<!-- a 태그는 기본적으로 get방식을 사용 -->
-		<li class="active"><a href="${pageContext.request.contextPath}/userPagingList">/user/pagination.jsp</a></li>
-		
-		<!-- a 태그는 기본적으로 get방식을 사용 -->
-		<li class="active"><a href="${pageContext.request.contextPath}/lprodpagination">Lprod_PageList</a></li>
+		<c:forEach items="${boardList }" var="board">
+			<li class="active"><a href="${pageContext.request.contextPath}/primaryBoard?board_id=${board.board_id}">${board.board_name }</a></li>
+		</c:forEach>
 	</ul>
+	
 </div>

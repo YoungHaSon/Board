@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.db.user.model.UsersVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,16 +16,7 @@
 
 			<!-- 정상적으로 로그인 했을 경우 USER_INFO 에 있는 name 속성 출력 
 			사용자가 로그인하지 않고 main.jsp로 직접 접속했을 경우 (local/jsp/main.jsp) "접속하지 않은 사용자 입니다 라는 문구 표시!"  -->
-			<a class="navbar-brand" href="#">JSP/SPRING
-				<c:choose>
-					<c:when test="${empty USER_INFO }"> <!--USER_INFO==null  -->
-						"접속하지 않은 사용자 입니다"
-					</c:when>
-					<c:otherwise>
-						${USER_INFO.name }
-					</c:otherwise>
-				</c:choose>
-			</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/main.jsp">JSP/SPRING ${USER_INFO.user_id}</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
